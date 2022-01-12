@@ -25,7 +25,6 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-          <img alt={post.frontmatter.image} className="post-image" src={`../images/${post.frontmatter.image}`}/>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
