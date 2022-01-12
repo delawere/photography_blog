@@ -422,6 +422,10 @@ a:focus {
   color: #fff;
 }
 
+img {
+   max-width: 100%;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
