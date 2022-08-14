@@ -87,7 +87,7 @@ body {
 footer {
   padding: var(--spacing-6) var(--spacing-0);
   position: absolute;
-  bottom: -16px;
+  bottom: 0;
 }
 
 hr {
@@ -465,4 +465,8 @@ a:focus {
 
 .footer-contacts-icon:hover {
   fill: var(--color-black);
+}
+
+main {
+  margin-bottom: 120px;
 }
