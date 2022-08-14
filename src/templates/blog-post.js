@@ -23,9 +23,15 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-          <img alt={post.frontmatter.image} className="post-image" src={`../images/${post.frontmatter.image}`}/>
+          <h2 className="post-main-title" itemProp="headline">
+            {post.frontmatter.title}
+          </h2>
+          <p className="post-main-date">{post.frontmatter.date}</p>
+          <img
+            alt={post.frontmatter.image}
+            className="post-image"
+            src={`../images/${post.frontmatter.image}`}
+          />
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Elvina's Blog`,
+    title: `Elvina Galimova`,
     author: {
       name: `Elvina Galimova`,
       summary: `from Moscow.`,
@@ -8,7 +8,7 @@ module.exports = {
     description: `Photography blog.`,
     social: {
       twitter: `orange_idiot`,
-      instagram: `orange_idiot`
+      instagram: `orange_idiot`,
     },
   },
   plugins: [
