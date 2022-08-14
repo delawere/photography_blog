@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const navItems = [
   {
-    title: "Home",
+    title: "Works",
     link: "/",
   },
   {

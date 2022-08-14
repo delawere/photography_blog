@@ -25,7 +25,7 @@ const Contacts = ({ location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="Contacts" />
       <div>
-        <ul className="contacts-list">
+        {/* <ul className="contacts-list">
           {contacts.map(({ title, link }) => (
             <li key={title}>
               <a href={link} target="_blank" rel="noreferrer">
@@ -33,7 +33,7 @@ const Contacts = ({ location }) => {
               </a>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </Layout>
   )
