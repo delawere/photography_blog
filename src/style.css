@@ -187,11 +187,6 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
-}
-
-li > p {
-  margin-bottom: calc(var(--spacing-8) / 2);
 }
 
 li *:last-child {
@@ -249,7 +244,7 @@ a:focus {
 
 .global-wrapper {
   margin: var(--spacing-0) auto;
-  width: 70%;
+  width: 76%;
   max-width: 1100px;
   padding: var(--spacing-10) var(--spacing-5);
   position: relative;
@@ -274,26 +269,20 @@ a:focus {
 }
 
 .post-list {
+  margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: 4px;
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
 }
 
 @media (min-width: 768px) {
   .post-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 4px;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
   }
-}
-
-.post-list-item {
-  margin-bottom: var(--spacing-8);
-  margin-top: var(--spacing-12);
-}
-
-.post-list-item p {
-  margin-bottom: var(--spacing-0);
 }
 
 .post-list-item h2 {
@@ -301,10 +290,6 @@ a:focus {
   color: var(--color-heading);
   margin-bottom: var(--spacing-0);
   margin-top: var(--spacing-0);
-}
-
-.post-list-item header {
-  margin-bottom: var(--spacing-4);
 }
 
 .header-link-home {
@@ -451,6 +436,10 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+}
+
+footer {
+  font-size: 12px;
 }
 
 .footer-contacts {
