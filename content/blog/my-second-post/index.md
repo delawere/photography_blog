@@ -5,7 +5,7 @@ description: "Description of my second post"
 image: "second-post-image.jpg"
 ---
 
-hello
+The story of how my friend and I enjoyed the last summer days away from the noisy city.
 
 ![image](https://i.ibb.co/2yCypkg/vasilyevo-35-min.jpg)
 
@@ -46,6 +46,15 @@ hello
 ![image](https://i.ibb.co/b3N74vn/vasilyevo-29-min.jpg)
 
 
-![image](https://i.ibb.co/4NGNx8J/vasilyevo-1.jpg)
+![image](https://i.ibb.co/8sLgSP5/vasilyevo-16-min.jpg)
+
+
+![image](https://i.ibb.co/JtHHDT5/vasilyevo-19.jpg)
+
+
+![image](https://i.ibb.co/ynhNbgg/vasilyevo-22-min.jpg)
+
+
+![image](https://i.ibb.co/PCN1Myh/vasilyevo-20.jpg)
 
 
