@@ -1,1 +1,1 @@
-[Blog Demo](https://elvinabaggy.netlify.app/)
+[Blog Demo](https://elvinagalimova.netlify.app/)
