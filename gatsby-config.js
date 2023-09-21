@@ -71,7 +71,6 @@ module.exports = {
           {
             site {
               siteMetadata {
-                parent
                 title
                 description
                 siteUrl
