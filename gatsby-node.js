@@ -19,6 +19,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               slug
+              parent
+            }
+            frontmatter {
+              parent
             }
           }
         }
@@ -44,9 +48,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      console.log("Post", post, post.fields.parent)
 
       createPage({
-        path: post.fields.slug,
+        path: post.frontmatter.parent
+          ? `/${post.frontmatter.parent.toLowerCase()}${post.fields.slug}`
+          : post.fields.slug,
         component: blogPost,
         context: {
           id: post.id,
@@ -108,10 +115,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
       date: Date @dateformat
       image: String
+      parent: String
     }
 
     type Fields {
       slug: String
+      parent: String
     }
   `)
 }

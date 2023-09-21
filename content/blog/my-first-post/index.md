@@ -3,9 +3,10 @@ title: Izmir streets
 date: "2015-05-01T22:12:03.284Z"
 description: "Description of my first post"
 image: "first-post-image.jpg"
+parent: "portraits"
 ---
 
-## 
+##
 
 These photos I've taken during my trip in Turkey in August 2021. Izmir is the one of the largest cities in country surrounded by mountains from one side and Aegean sea by another.There is definetily something poetic in it. Here you can see the shots I've made while strolled through the narrow streets hidden from the eyes
 of tourists.
@@ -37,4 +38,3 @@ of tourists.
 ![image](https://i.ibb.co/bBw3TvT/Iz-inst-16.jpg)
 
 ![image](https://i.ibb.co/DbKYzM7/Iz-inst-18.jpg)
-

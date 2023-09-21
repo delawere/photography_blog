@@ -71,6 +71,7 @@ module.exports = {
           {
             site {
               siteMetadata {
+                parent
                 title
                 description
                 siteUrl
@@ -89,6 +90,7 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
+                  parent: node.frontmatter.parent,
                 })
               })
             },
@@ -107,6 +109,7 @@ module.exports = {
                       title
                       date
                       image
+                      parent
                     }
                   }
                 }

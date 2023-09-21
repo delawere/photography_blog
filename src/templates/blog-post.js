@@ -10,8 +10,21 @@ const BlogPostTemplate = ({ data, location }) => {
   const { previous, next } = data
   const articleRef = React.useRef(null)
 
+  console.log(post)
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={post.frontmatter.title}
+      parent={
+        post.frontmatter.parent
+          ? {
+              title: post.frontmatter.parent,
+              link: "/" + post.frontmatter.parent,
+            }
+          : null
+      }
+    >
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -22,11 +35,6 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h2 className="post-main-title" itemProp="headline">
-            {post.frontmatter.title}
-          </h2>
-        </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -85,6 +93,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         image
+        parent
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

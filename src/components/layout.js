@@ -1,16 +1,25 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import Nav from "./nav"
+import capitalize from "../utils/helpers/capitalize"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, parent }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
   const header = (
     <div className="header-wrapper">
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
+      <div className="main-heading-wrapper">
+        <h1 className="main-heading">
+          <Link to="/">{`Elvina Galimova`}</Link>
+        </h1>
+
+        <nav className="breadcrumbs">
+          {parent ? <a href={parent.link}>{capitalize(parent.title)}</a> : null}
+          {title ? <span>{` / ${capitalize(title)}`}</span> : ""}
+        </nav>
+      </div>
+
       <Nav />
     </div>
   )
@@ -25,6 +34,7 @@ const Layout = ({ location, title, children }) => {
             className="footer-contacts-icon"
             href="https://instagram.com/orange_idiot"
             target="_blank"
+            rel="noreferrer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
