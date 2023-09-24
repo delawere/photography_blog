@@ -102,7 +102,10 @@ const BlogPostTemplate = ({ data, location }) => {
         <Slider
           images={images}
           initialIndex={initialIndex}
-          onClose={() => setShowCarousel(false)}
+          onClose={() => {
+            setShowCarousel(false)
+            document.body.classList.remove("overlay")
+          }}
         />
       ) : null}
       <article
