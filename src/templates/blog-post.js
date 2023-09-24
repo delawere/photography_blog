@@ -13,8 +13,6 @@ const Slider = ({ initialIndex = 0, images, onClose }) => {
       <button className="close-button" onClick={onClose}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -51,20 +49,22 @@ const BlogPostTemplate = ({ data, location }) => {
   const [showCarousel, setShowCarousel] = React.useState(false)
   const [initialIndex, setInitialIndex] = React.useState(0)
 
-  const images = (post.frontmatter.content || "").split(",")
+  const images = (post.frontmatter.content || "").split(",").filter(t => !!t)
 
   React.useEffect(() => {
-    document
-      .querySelector(".blog-post")
-      .querySelectorAll("img")
-      .forEach((img, index) => {
-        img.addEventListener("click", () => {
-          setInitialIndex(index)
-          setShowCarousel(true)
-          document.body.classList.add("overlay")
+    if (images.length > 0) {
+      document
+        .querySelector(".blog-post")
+        .querySelectorAll("img")
+        .forEach((img, index) => {
+          img.addEventListener("click", () => {
+            setInitialIndex(index)
+            setShowCarousel(true)
+            document.body.classList.add("overlay")
+          })
         })
-      })
-  }, [])
+    }
+  }, [images.length])
 
   const handleKeyDown = React.useCallback(e => {
     if (e.key === "Escape") {
