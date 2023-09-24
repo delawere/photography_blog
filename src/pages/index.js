@@ -23,8 +23,6 @@ const BlogIndex = ({ data, location }) => {
 
   const { series, portraits, ...rest } = groupPosts(posts)
 
-  console.log(rest, Object.values(rest))
-
   return (
     <Layout location={location} title={""}>
       <Seo title="All posts" />
