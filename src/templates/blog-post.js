@@ -1,16 +1,85 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Slide } from "react-slideshow-image"
+import "react-slideshow-image/dist/styles.css"
+import { createPortal } from "react-dom"
+
+const Slider = ({ initialIndex = 0, images, onClose }) => {
+  return createPortal(
+    <div className="slider-wrapper">
+      <button className="close-button" onClick={onClose}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+        </svg>
+      </button>
+      <Slide
+        autoplay={false}
+        transitionDuration={300}
+        defaultIndex={initialIndex}
+        easing={"ease"}
+        indicators={index => {
+          return (
+            <div className="indicator">
+              <img src={images[index]} alt={`open ${index}`} />
+            </div>
+          )
+        }}
+      >
+        {images.map(t => (
+          <div className="each-slide-effect">
+            <img src={t} alt="" />
+          </div>
+        ))}
+      </Slide>
+    </div>,
+    document.querySelector("body")
+  )
+}
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
   const articleRef = React.useRef(null)
+  const [showCarousel, setShowCarousel] = React.useState(false)
+  const [initialIndex, setInitialIndex] = React.useState(0)
 
-  console.log(post)
+  const images = (post.frontmatter.content || "").split(",")
+
+  React.useEffect(() => {
+    document
+      .querySelector(".blog-post")
+      .querySelectorAll("img")
+      .forEach((img, index) => {
+        img.addEventListener("click", () => {
+          setInitialIndex(index)
+          setShowCarousel(true)
+          document.body.classList.add("overlay")
+        })
+      })
+  }, [])
+
+  const handleKeyDown = React.useCallback(e => {
+    if (e.key === "Escape") {
+      document.body.classList.remove("overlay")
+      setShowCarousel(false)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [handleKeyDown])
 
   return (
     <Layout
@@ -29,6 +98,13 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      {showCarousel ? (
+        <Slider
+          images={images}
+          initialIndex={initialIndex}
+          onClose={() => setShowCarousel(false)}
+        />
+      ) : null}
       <article
         ref={articleRef}
         className="blog-post"
@@ -41,32 +117,6 @@ const BlogPostTemplate = ({ data, location }) => {
         />
         <hr />
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }
@@ -94,6 +144,7 @@ export const pageQuery = graphql`
         description
         image
         parent
+        content
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

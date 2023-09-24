@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               parent
+              content
             }
           }
         }
@@ -116,6 +117,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       image: String
       parent: String
+      content: String
     }
 
     type Fields {

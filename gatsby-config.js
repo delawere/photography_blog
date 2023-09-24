@@ -109,6 +109,7 @@ module.exports = {
                       date
                       image
                       parent
+                      content
                     }
                   }
                 }
