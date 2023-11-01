@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 
 const octokit = new Octokit({
-  auth: `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`,
+  auth: `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`,
 });
 
 // Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
@@ -170,6 +170,8 @@ fastify.post<{ Body: PublishRequestBody; Reply: any }>(
 
       const __filename = fileURLToPath(import.meta.url);
       const __dirname = dirname(__filename);
+
+      console.log("dirname: " + __dirname);
 
       const workspacePath = path.join(__dirname);
       await uploadToRepo(octokit, workspacePath, REPO, BRANCH);
