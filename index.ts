@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 
 const octokit = new Octokit({
-  auth: `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`,
+  auth: `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`,
 });
 
 // Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
