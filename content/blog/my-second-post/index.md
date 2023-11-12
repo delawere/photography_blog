@@ -1,11 +1,10 @@
 ---
-title: Holidays12
-date: 2015-05-06T23
-description: Description of my second post
-image: second-post-image.jpg
-parent: series
+title:  Holidays123
+date:  2015-05-06T23
+description:  Description of my second post
+image:  second-post-image.jpg
+parent:  series
 ---
-
 The story of how my friend and I enjoyed the last summer days away from the noisy city.
 
 ![image](https://i.ibb.co/2yCypkg/vasilyevo-35-min.jpg)
