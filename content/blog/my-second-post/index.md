@@ -1,11 +1,3 @@
----
-title: Holidays
-date: "2015-05-06T23:46:37.121Z"
-description: "Description of my second post"
-image: "second-post-image.jpg"
-parent: "series"
----
-
 The story of how my friend and I enjoyed the last summer days away from the noisy city.
 
 ![image](https://i.ibb.co/2yCypkg/vasilyevo-35-min.jpg)
@@ -40,7 +32,7 @@ The story of how my friend and I enjoyed the last summer days away from the nois
 
 ![image](https://i.ibb.co/ynhNbgg/vasilyevo-22-min.jpg)
 
-![image](https://i.ibb.co/PCN1Myh/vasilyevo-20.jpg)---title:  Holidays
+## ![image](https://i.ibb.co/PCN1Myh/vasilyevo-20.jpg)\---title: Holidays date: "2015-05-06T23 description: "Description of my second post" image: "second-post-image.jpg" parent: "series"---title:  Holidays
 date:  "2015-05-06T23
 description:  "Description of my second post"
 image:  "second-post-image.jpg"
