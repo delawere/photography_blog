@@ -1,8 +1,8 @@
 ---
-title:  Izmir streets
-date:  2015-05-01T22
-description:  Description of my first post
-image:  first-post-image.jpg
+title: Izmir streets
+date: 2015-05-01T22
+description: Description of my first post
+image: first-post-image.jpg
 ---
 Hello world!
 
